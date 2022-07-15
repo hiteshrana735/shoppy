@@ -4,9 +4,11 @@
 
 
 .container_two {
-    min-height: 90vh;
+    min-height: 92vh;
     width: 100%;
-    background-color: var(--tertiary-color);
+    background-color: rgb(214, 213, 227);
+    background-size: 100% 100%;
+
 }
 
 .container_box {
@@ -23,7 +25,7 @@
     flex-direction: row;
     min-height: 80vh;
     width: 85%;
-    box-shadow: 0 20px 20px 0 var(--secondary-color);
+    /* box-shadow: 0 20px 20px 0 var(--secondary-color); */
 }
 .card-box .left-bar{
     padding-right: 50px;
@@ -35,14 +37,14 @@
     border-radius: 50%;
     margin-left: 50px;
     border: 1px solid rgb(49, 48, 48);
-    box-shadow: 0 20px 20px 0 var(--secondary-color);
+    /* box-shadow: 0 20px 20px 0 var(--secondary-color); */
 }
 
 .card__information-title {
     font-size: 2em;
     margin-top: 20px;
     margin-left: 90px;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
 }
 
 .container_box .line-bar {
