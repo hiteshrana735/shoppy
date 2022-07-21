@@ -62,43 +62,54 @@
                 </p>
 
                 <div class="container2">
-                    <form id="wf-form-Email-Form" name="wf-form-Email-Form" data-name="Email Form" method="get">
+                    <form onsubmit="sendEmail(); reset(); return false; " id="wf-form-Email-Form"
+                        name="wf-form-Email-Form" data-name="Email Form" method="get">
 
                         <label for="name-2" class="form-label">Name:</label><br>
-                        <input type="text" id="name-2" class="form-input w-input" maxlength="256" name="name-2"
-                            data-name="Name 2" placeholder="Enter your name" id="name-2" required=""><br>
+                        <input type="text" id="name-2" class="form-input w-input" name="name-2" data-name="Name 2"
+                            placeholder="Enter your name" required=""><br>
 
                         <label for="email-2" class="form-label">Email Address:</label><br>
                         <input type="email" id="email-2" name="email-2" data-name="Email 2"
-                            placeholder="Enter your email address" maxlength="256" required=""
-                            class="form-input w-input"><br>
+                            placeholder="Enter your email address" required="" class="form-input w-input"><br>
 
                         <label for="Message-2" class="form-label">Message:</label><br>
                         <textarea id="Message-2" name="Message-2" placeholder="Enter your message" maxlength="5000"
                             data-name="Message 2" required="" class="form-input form-message w-input"></textarea><br>
 
-                        <input type="submit" value="Submit" data-wait="Please wait..." class="form-submit">
+                        <input type="submit" value="Submit" class="form-submit">
                     </form>
                 </div>
-                <!-- <div class="form-success w-form-done">
-                            <div class="form-success-wrapper">
-                                <div class="form-success-text">Thanks for getting in touch! 😃<br>I'll get back to you by email as
-                                    soon as I can.</div>
-                                    <h4 class="title-link"><a href="/" class="link"><span
-                                        class="chevron-back">&nbsp;&nbsp;</span>&nbsp;Home</a></h4>
-                                    </div>
-                                </div>
-                                <div class="form-error w-form-fail">
-                                    <div>Oops! Something went wrong. 😢<br>If the problem persists, please get in touch by emailing <a
-                                        href="mailto:nad@nad.is?subject=Hello" class="link">nad@nad.is</a>.
-                                    </div>
-                                </div> -->
+
             </div>
         </section>
 
 
         <!-- Template Main JS File -->
         <script src="{% static 'js/main.js' %}"></script>
+
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendEmail(){
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "hiteshrana735@gmail.com",
+                    Password: "hitesh735",
+                    To: 'hiteshrana0747@gmail.com',
+                    From: document.getElementById("email-2").value,
+                    Subject: "This is the subject",
+                    Body: "This is body"
+                        // "Name: " + document.getElementById("name-2").value
+                        // + "<br> Email: " + document.getElementById("email-2").value
+                        // // + "<br> Phone no.: " + document.getElementById("phone").value
+                        // + "<br> Message: " + document.getElementById("Message-2").value
+                }).then(
+                    message =>  alert("Message sent succesfully")
+                        
+                );
+            }
+        </script>
+
 
 </body>
 
