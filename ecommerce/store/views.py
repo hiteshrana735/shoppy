@@ -37,7 +37,7 @@ def signup(request):
             return redirect('signup')
 
         if not username.isalnum():
-            messages.error(request, "Username musst be Alpha-Numeric")
+            messages.error(request, "Username must be Alpha-Numeric")
             return redirect('signup')
 
         myuser = User.objects.create_user(username, useremail, userpassword)
