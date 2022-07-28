@@ -62,7 +62,7 @@
                 </p>
 
                 <div class="container2">
-                    <form action="https://formsubmit.co/1b936e01a75396a96028edd9585fc0a3" method="POST" id="wf-form-Email-Form"
+                    <form action="javascript:sendEmail(); reset(); return false; " id="wf-form-Email-Form"
                         name="wf-form-Email-Form" data-name="Email Form" method="get">
 
                         <label for="name-2" class="form-label">Name:</label><br>
@@ -70,7 +70,7 @@
                             placeholder="Enter your name" required=""><br>
 
                         <label for="email-2" class="form-label">Email Address:</label><br>
-                        <input type="email" id="email-2" name="email" data-name="Email 2"
+                        <input type="email" id="email-2" name="email-2" data-name="Email 2"
                             placeholder="Enter your email address" required="" class="form-input w-input"><br>
 
                         <label for="Message-2" class="form-label">Message:</label><br>
@@ -88,7 +88,7 @@
         <!-- Template Main JS File -->
         <script src="{% static 'js/main.js' %}"></script>
 
-        <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script>
             function sendEmail(){
                 Email.send({
@@ -98,17 +98,25 @@
                     To: 'hiteshrana0747@gmail.com',
                     From: document.getElementById("email-2").value,
                     Subject: "This is the subject",
-                    Body: "This is body"
-                        // "Name: " + document.getElementById("name-2").value
-                        // + "<br> Email: " + document.getElementById("email-2").value
-                        // // + "<br> Phone no.: " + document.getElementById("phone").value
-                        // + "<br> Message: " + document.getElementById("Message-2").value
+                    Body:
+                        "Name: " + document.getElementById("name-2").value
+                        + "<br> Email: " + document.getElementById("email-2").value
+                        + "<br> Phone no.: " + document.getElementById("phone").value
+                        + "<br> Message: " + document.getElementById("Message-2").value
                 }).then(
-                    message =>  alert("Message sent succesfully")
+                    message =>{
+                        if(message=='OK'){
+                            alert("Your mail has been send. Thank you for connecting. ");
+                        }
+                        else{
+                            console.error(message);
+                            alert('There is an error at sending message. \nPlease try again.')
+                        }
+                    }
                         
                 );
             }
-        </script> -->
+        </script>
 
 
 </body>
